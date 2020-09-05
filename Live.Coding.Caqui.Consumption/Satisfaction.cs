@@ -18,7 +18,7 @@ namespace Live.Coding.Caqui.Consumption
         {
             var result = new List<SatisfactionModel>();
             _iSyncAsync.HTTPVerb = HTTPVerb.GET;
-            _iSyncAsync.Url = "https://livecaqui.paulomaestro.com.br/Satisfation/GetSatisfaction" + "?Hash=" + Hash;
+            _iSyncAsync.Url = "https://{Sua URL ou IP}/Satisfation/GetSatisfaction" + "?Hash=" + Hash;
             var resultAux = await _iSyncAsync.GoSyncAsync();
 
             if (!resultAux.Item1)
@@ -32,7 +32,7 @@ namespace Live.Coding.Caqui.Consumption
         {
             var result = new List<SatisfactionModel>();
             _iSyncAsync.HTTPVerb = HTTPVerb.POST;
-            _iSyncAsync.Url = "https://livecaqui.paulomaestro.com.br/Satisfation/PostSatisfaction";
+            _iSyncAsync.Url = "https://{Sua URL ou IP}/Satisfation/PostSatisfaction";
             _iSyncAsync.Obj = Satisfaction;
             var resultAux = await _iSyncAsync.GoSyncAsync();
 
