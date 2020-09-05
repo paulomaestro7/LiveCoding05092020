@@ -1,0 +1,22 @@
+﻿<?xml version="1.0" encoding="utf-8" ?>
+<ContentPage xmlns="http://xamarin.com/schemas/2014/forms"
+             xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+             xmlns:d="http://xamarin.com/schemas/2014/forms/design"
+             xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+             xmlns:prism="clr-namespace:Prism.Mvvm;assembly=Prism.Forms"
+             prism:ViewModelLocator.AutowireViewModel="True"
+             mc:Ignorable="d"
+             xmlns:Controls="clr-namespace:Employer.LiveCoding2020.Control"
+             x:Class="Employer.LiveCoding2020.View.LoginPage">
+    <ContentPage.Content>
+        <StackLayout BackgroundColor="#212121" Padding="20, 60, 20, 60">
+            <Label Text="Login Live Coding Caqui" HorizontalOptions="Center" VerticalOptions="Start" FontSize="Title" TextColor="White"/>
+            <StackLayout VerticalOptions="CenterAndExpand" Spacing="20">
+                <Controls:EntryCustom Placeholder="Usuário" PlaceholderColor="Gray" BackgroundColor="White" Text="{Binding LoginParameter, Mode=TwoWay}"/>
+                <Controls:EntryCustom Placeholder="Senha" IsPassword="True" PlaceholderColor="Gray" BackgroundColor="White" Text="{Binding PasswordParameter, Mode=TwoWay}"/>
+                <Button Text="Cadastrar" TextColor="White" BackgroundColor="Transparent" Command="{Binding RegisterCommand}"/>
+                <Button Text="Acessar" BackgroundColor="#9540CA" TextColor="White" CornerRadius="40" Command="{Binding LoginCommand}"/>
+            </StackLayout>
+        </StackLayout>
+    </ContentPage.Content>
+</ContentPage>

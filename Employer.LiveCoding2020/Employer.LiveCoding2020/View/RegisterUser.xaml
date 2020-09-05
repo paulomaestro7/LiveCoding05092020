@@ -1,0 +1,23 @@
+﻿<?xml version="1.0" encoding="utf-8" ?>
+<ContentPage xmlns="http://xamarin.com/schemas/2014/forms"
+             xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+             xmlns:d="http://xamarin.com/schemas/2014/forms/design"
+             xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+             mc:Ignorable="d"
+             xmlns:prism="clr-namespace:Prism.Mvvm;assembly=Prism.Forms"
+             prism:ViewModelLocator.AutowireViewModel="True"
+             xmlns:Controls="clr-namespace:Employer.LiveCoding2020.Control"
+             x:Class="Employer.LiveCoding2020.View.RegisterUser">
+    <ContentPage.Content>
+        <StackLayout Padding="20, 60, 20, 60" BackgroundColor="#212121">
+            <Label Text="Cadastro de usuário" HorizontalOptions="Center" VerticalOptions="Start" FontSize="Title" TextColor="White"/>
+            <StackLayout VerticalOptions="CenterAndExpand" Spacing="20">
+                <Controls:EntryCustom Placeholder="Nome" PlaceholderColor="Gray" BackgroundColor="White" Text="{Binding NameParameter}"/>
+                <Controls:EntryCustom Placeholder="Usuário" PlaceholderColor="Gray" BackgroundColor="White" Text="{Binding LoginParameter}"/>
+                <Controls:EntryCustom Placeholder="Senha" IsPassword="True" PlaceholderColor="Gray" BackgroundColor="White" Text="{Binding PasswordParameter}"/>
+                <Button Text="Cadastrar" BackgroundColor="#9540CA" TextColor="White" CornerRadius="40" Command="{Binding RegisterUserCommand}"/>
+                <Button Text="Voltar" BackgroundColor="White" TextColor="#9540CA" CornerRadius="40" Command="{Binding BackPageCommand}"/>
+            </StackLayout>
+        </StackLayout>
+    </ContentPage.Content>
+</ContentPage>

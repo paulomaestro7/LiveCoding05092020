@@ -1,0 +1,22 @@
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  name: live-deployment
+  namespace: live
+spec:
+  selector:
+    matchLabels:
+      app: live
+  template:
+    metadata:
+      labels:
+        app: live
+    spec:
+      imagePullSecrets:
+      - name: {SUA CHAVE SECRETA DO KUBE}    
+      containers:
+      - name: live
+        image: {SUA IMAGEM}
+        imagePullPolicy: Always
+        ports:
+        - containerPort: 80

@@ -1,0 +1,47 @@
+﻿<?xml version="1.0" encoding="utf-8" ?>
+<ContentPage xmlns="http://xamarin.com/schemas/2014/forms"
+             xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+             xmlns:d="http://xamarin.com/schemas/2014/forms/design"
+             xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+             mc:Ignorable="d"
+             xmlns:input="clr-namespace:Plugin.InputKit.Shared.Controls;assembly=Plugin.InputKit"
+             x:Class="Employer.LiveCoding2020.View.VotingPage">
+    <ContentPage.Content>
+        <StackLayout BackgroundColor="#212121" Padding="20,60,20,60">
+            <Label Text="Votação" HorizontalOptions="Center" FontSize="Title" TextColor="White" FontAttributes="Bold"/>
+            <StackLayout VerticalOptions="CenterAndExpand" Spacing="10">
+                <Label Text="Satisfação da Live Coding Caqui" HorizontalOptions="Center" VerticalOptions="CenterAndExpand" TextColor="White" 
+                       FontSize="Subtitle"/>
+                <Frame BackgroundColor="Transparent" CornerRadius="20" BorderColor="White">
+                    <input:RadioButtonGroupView SelectedIndex="{Binding Index}">
+                        <input:RadioButton Text="Muito satisfeito" CircleColor="White" TextColor="White"/>
+                        <input:RadioButton Text="Satisfeito" CircleColor="White" TextColor="White"/>
+                        <input:RadioButton Text="Razoavelmente satisfeito" CircleColor="White" TextColor="White"/>
+                        <input:RadioButton Text="Pouco satisfeito" CircleColor="White" TextColor="White"/>
+                        <input:RadioButton Text="Insatisfeito" CircleColor="White" TextColor="White"/>
+                    </input:RadioButtonGroupView>
+                </Frame>
+                <Button BackgroundColor="Green" TextColor="White" Text="Votar" Command="{Binding VoteCommand}" CornerRadius="40"/>
+            </StackLayout>
+            <ListView ItemsSource="{Binding VoteParameter}"
+                      HorizontalOptions="CenterAndExpand" VerticalOptions="StartAndExpand" HasUnevenRows="True" BackgroundColor="Transparent"
+                      SeparatorVisibility="None">
+                <ListView.ItemTemplate>
+                    <DataTemplate>
+                        <ViewCell>
+                            <Frame Margin="10,5,10,5" CornerRadius="10" BorderColor="White">
+                                <StackLayout Orientation="Horizontal" VerticalOptions="Center">
+                                    <Label Text="{Binding Count}" TextColor="Black" FontSize="Small"
+                                           HorizontalOptions="Start" HorizontalTextAlignment="Start" VerticalTextAlignment="Center"/>
+                                    <Label Text="{Binding Description}" TextColor="Black" FontSize="16" 
+                                                    HorizontalOptions="Start" HorizontalTextAlignment="Start" VerticalTextAlignment="Center"/>
+                                </StackLayout>
+                            </Frame>
+                        </ViewCell>
+                    </DataTemplate>
+                </ListView.ItemTemplate>
+            </ListView>
+            <Button Text="Atualizar votação" BackgroundColor="#9540CA" TextColor="White" CornerRadius="40" Command="{Binding UpdateVote}"/>
+        </StackLayout>
+    </ContentPage.Content>
+</ContentPage>
